@@ -18,7 +18,6 @@ const About = () => {
                 delay: 100,
                 cursor: "_"
             }}
-
         />
             </span>
     </div>

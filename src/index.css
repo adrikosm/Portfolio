@@ -14,7 +14,8 @@
 }
 
 
-Global Variables
+/*Global Variables*/
+
 :root{
     --container-width: 1200px;
     --primary-color: #00bcd4;
@@ -33,7 +34,6 @@ html{
 ::-webkit-scrollbar {
     display: none;
 }
-
 
 
 /*General CSS*/
