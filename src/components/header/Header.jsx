@@ -25,9 +25,6 @@ const Header = () => {
     return (
         <div className="Navbar text-lime-600">
             <nav>
-                <div>
-                <button className="download-button">Download CV</button>
-                </div>
                 {(toggleMenu || screenWidth > 1024) && (
                     <ul className="list">
 
@@ -73,12 +70,6 @@ const Header = () => {
                         alt="github"/>
                         <p>Github</p>
                     </div>
-
-                    <a href="#">
-                        <img src= {email}
-                         classname ="navbar__email"
-                        alt="contact"></img>
-                    </a>
 
                 </div>
             </nav>
