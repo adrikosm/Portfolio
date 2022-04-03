@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './header.css';
 
 import github from "../../assets/github2.png"
-import email from "../../assets/email2.png"
 import linkedin from "../../assets/linkedin2.png"
 import bars from "../../assets/bars.png"
 import close from "../../assets/close.png"
@@ -58,17 +57,21 @@ const Header = () => {
                 <div className="navbar__socials">
 
                     <div className="socials__linkedin">
+                        <a href="https://www.linkedin.com/in/andreas-mavropoulos/" target="_blank">
                         <img src = {linkedin} 
                         classname ="navbar__linkedin"
                         alt="linkedin"/>
-                        <p>LinkedIn</p>
+                        <p> LinkedIn</p>
+                        </a>
                     </div>
 
                     <div className="socials__github">
+                       <a href="https://github.com/adrikosm" target="_blank"> 
                         <img src = {github} 
                         classname ="navbar__github"
                         alt="github"/>
-                        <p>Github</p>
+                        <p> Github</p> 
+                        </a>
                     </div>
 
                 </div>

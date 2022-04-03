@@ -18,14 +18,16 @@
 
 :root{
     --container-width: 1200px;
-    --primary-color: #a1e140;
-    --secondary-color: #64f4ac;
+    --primary-color: #a0b0bd;
+    --secondary-color: #61e4a2;
     --transition: all 0.3s ease-in-out;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
     --background-primary: #181a1b;
-
+    --background-secondary: #1e2122;
+    --color-white: #eeeeee;
 }
+
 
 /*General Html behavior*/
 html{
@@ -33,6 +35,7 @@ html{
     -webkit-text-size-adjust: 100%;
     line-height: 1.5;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }

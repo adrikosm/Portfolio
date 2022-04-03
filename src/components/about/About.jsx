@@ -12,10 +12,10 @@ const About = () => {
         <span className="text-3xl font-bold underline text-indigo-700" >
         <Typewriter
             options={{
-                strings: ["Full Stack Web Developer", "Software Engineer"],
+                strings: ["Sofware Developer", "Machine Learning Enthusiast"],
                 autoStart: true,
                 loop: true,
-                delay: 100,
+                delay: 150,
                 cursor: "_"
             }}
         />

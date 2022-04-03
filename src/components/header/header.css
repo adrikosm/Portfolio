@@ -1,7 +1,7 @@
 .Navbar{
-    color: #a1e140;
+    color: var(--primary-color);
     padding: 30px 100px;
-    background-color: #1e2122;
+    background-color: var(--background-secondary);
 }
 
 
@@ -58,7 +58,8 @@ nav{
 }
 
 .menu__icon{
-    width: 20px;
+    width: 30px;
+    height: 30px;
 }
 
 .navbar__socials{
@@ -114,10 +115,9 @@ nav{
     .links{
         top: 0;
         width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.5);
+        border-top: 1px solid rgba(255,255,255,0.7);
         text-align: center;
         margin-top: 0;
-        margin-right: 20px;
         padding: 20px 0;
         opacity: 0.8;
     }
@@ -141,6 +141,7 @@ nav{
 
     .navbar__socials{
         justify-content: unset;
+        
     }
 
     .socials__github,
@@ -162,8 +163,15 @@ nav{
     .navbar__socials{
         margin-right: 30px;
         text-align: left;
-        margin-left: 0;
-
+        margin-left: 20px;
+    }
+    
+    .socials__github,
+    .socials__linkedin{
+        height: 40px;
+        margin-left: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     
 }
