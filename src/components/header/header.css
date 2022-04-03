@@ -1,6 +1,7 @@
 .Navbar{
- padding: 30px 100px;
- background-color: rgb(40, 40, 40);
+    color: #a1e140;
+    padding: 30px 100px;
+    background-color: #1e2122;
 }
 
 
@@ -105,8 +106,9 @@ nav{
         flex-direction: column;
         height: auto;
         padding: 0;
-        background-color: #333438;
+        background-color: #2e3133;
         z-index: 100;
+        margin-right: 10px;
     }
     
     .links{
@@ -115,6 +117,7 @@ nav{
         border-top: 1px solid rgba(255,255,255,0.5);
         text-align: center;
         margin-top: 0;
+        margin-right: 20px;
         padding: 20px 0;
         opacity: 0.8;
     }
@@ -129,7 +132,7 @@ nav{
     }
 }
 
-
+/* ----- Small devices portrait phones ----- */
 @media sceen and (max-width:768px){
 
     .Navbar{
@@ -149,12 +152,18 @@ nav{
     .navbar__linkedin{
         margin-right: 30px;
     }
-    
+
 }
 
 @media screen and (max-width:450px){
     .Navbar{
         padding: 30px 60px 30px 30px;
+    }
+    .navbar__socials{
+        margin-right: 30px;
+        text-align: left;
+        margin-left: 0;
+
     }
     
 }

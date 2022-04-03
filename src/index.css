@@ -18,11 +18,13 @@
 
 :root{
     --container-width: 1200px;
-    --primary-color: #00bcd4;
+    --primary-color: #a1e140;
     --secondary-color: #64f4ac;
     --transition: all 0.3s ease-in-out;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
+    --background-primary: #181a1b;
+
 }
 
 /*General Html behavior*/
@@ -39,4 +41,5 @@ html{
 /*General CSS*/
 body{
     font-family: var(--font-primary);
+    background-color: var(--background-primary);
 }

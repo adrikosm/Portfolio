@@ -23,7 +23,7 @@ const Header = () => {
     },[]);
 
     return (
-        <div className="Navbar text-lime-600">
+        <div className="Navbar">
             <nav>
                 {(toggleMenu || screenWidth > 1024) && (
                     <ul className="list">
