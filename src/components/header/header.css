@@ -153,6 +153,9 @@ nav{
     .navbar__linkedin{
         margin-right: 30px;
     }
+    .links:hover{
+        color:var(--secondary-color);
+    }
 
 }
 
@@ -172,6 +175,9 @@ nav{
         margin-left: 10px;
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .links:hover{
+        color:var(--secondary-color);
     }
     
 }
