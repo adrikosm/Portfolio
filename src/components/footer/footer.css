@@ -29,7 +29,7 @@
 .footer_socials {
   display: flex;
   padding-right: 210px;
-  flex: 40%
+  flex: 40%;
 }
 
 .footer_socials > img {
@@ -61,12 +61,12 @@
     flex-direction: column;
   }
   .footer_social_icons {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .footer_name,
   .footer_rights,
-  .footer_socials{
-      flex:100%;
+  .footer_socials {
+    flex: 100%;
   }
 }
 
@@ -98,7 +98,7 @@
 
   .footer_name,
   .footer_rights,
-  .footer_socials{
-      flex:100%;
+  .footer_socials {
+    flex: 100%;
   }
 }
