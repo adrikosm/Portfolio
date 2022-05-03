@@ -1,32 +1,41 @@
-import React from 'react';
-import './footer.css';
+import React from "react";
+import "./footer.css";
 
-import github from "../../assets/github2.png"
-import linkedin from "../../assets/linkedin2.png"
-import email from "../../assets/email2.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+
 
 
 const Footer = () => {
-    return (
-        <div className='Footer'>
-                <p className="footer_name">
-                    <span>Andreas</span> Mavropoulos</p>
- 
-            <div className="footer_rights">
-            <p className="fotter_copyrights">© All Rights Reserved </p>
-            </div>
+  return (
+    <div className="Footer">
+      <p className="footer_name">
+        <span>Andreas</span> Mavropoulos
+      </p>
 
-            <div className="footer_socials">
-                <a href="https://github.com/adrikosm" target="_blank">
-                    <img src={github} alt="Github" className="footer_social_icons" /></a>
-                <a href="https://www.linkedin.com/in/andreas-mavropoulos/" target="_blank">
-                    <img src={linkedin} alt="LinkedIn" className="footer_social_icons" /></a>
-                <a href="mailto:adrikosm@gmail.com">
-                    <img src={email} alt="Email" className="footer_social_icons" /></a>
+      <div className="footer_rights">
+        <p className="fotter_copyrights">© All Rights Reserved </p>
+      </div>
 
-            </div>
-        </div>
-    )
-}
+      <div className="footer_socials">
+
+        <a target= "_blank" href="https://github.com/adrikosm">
+        <FontAwesomeIcon icon={faGithub} className="footer_social_icons hover:text-secondary" />
+        </a>
+
+        <a target = "_blank" href = "https://www.linkedin.com/in/andreas-mavropoulos/">
+        <FontAwesomeIcon icon={faLinkedin} className = "footer_social_icons hover:text-secondary" />
+        </a>
+        <a href="mailto:adrikosm@gmail.com">
+        <FontAwesomeIcon icon={faEnvelope} className = "footer_social_icons hover:text-secondary"/>
+        </a>
+
+
+      </div>
+    </div>
+  );
+};
 
 export default Footer;

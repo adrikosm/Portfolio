@@ -16,7 +16,7 @@ const About = () => {
                 autoStart: true,
                 loop: true,
                 delay: 150,
-                cursor: "_"
+                cursor: "|"
             }}
         />
             </span>

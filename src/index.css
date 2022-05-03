@@ -18,14 +18,14 @@
 
 :root{
     --container-width: 1200px;
-    --primary-color: #a0b0bd;
+    --primary-color: #ffffff;
     --secondary-color: #61e4a2;
     --transition: all 0.3s ease-in-out;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
     --background-primary: #181a1b;
     --background-secondary: #1e2122;
-    --color-white: #eeeeee;
+    --color-white: #ffffff;
 }
 
 
