@@ -63,7 +63,7 @@ const Header = () => {
             <a href="https://github.com/adrikosm" target="_blank">
               <FontAwesomeIcon
                 icon={faGithub}
-                className="navbar__github hover:text-secondary"
+                className="navbar__github hover:text-github"
               />
             </a>
           </div>
@@ -74,7 +74,7 @@ const Header = () => {
             >
               <FontAwesomeIcon
                 icon={faLinkedin}
-                className="navbar__linkedin hover:text-secondary"
+                className="navbar__linkedin hover:text-linkedin"
               />
             </a>
           </div>

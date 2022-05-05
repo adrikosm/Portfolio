@@ -22,17 +22,15 @@ const Footer = () => {
       <div className="footer_socials">
 
         <a target= "_blank" href="https://github.com/adrikosm">
-        <FontAwesomeIcon icon={faGithub} className="footer_social_icons hover:text-secondary" />
+        <FontAwesomeIcon icon={faGithub} className="footer_social_icons hover:text-github" />
         </a>
 
         <a target = "_blank" href = "https://www.linkedin.com/in/andreas-mavropoulos/">
-        <FontAwesomeIcon icon={faLinkedin} className = "footer_social_icons hover:text-secondary" />
+        <FontAwesomeIcon icon={faLinkedin} className = "footer_social_icons hover:text-linkedin" />
         </a>
         <a href="mailto:adrikosm@gmail.com">
         <FontAwesomeIcon icon={faEnvelope} className = "footer_social_icons hover:text-secondary"/>
         </a>
-
-
       </div>
     </div>
   );
