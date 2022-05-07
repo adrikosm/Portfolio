@@ -19,8 +19,8 @@
 :root{
     --container-width: 1200px;
     --primary-color: #faf5f5;
-    --secondary-color: #61e4a2;
-    --transition: all 0.3s ease-in-out;
+    --secondary-color: #00b9e8;
+    --transition: all 0.5s ease-in-out;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
     --background-primary: #181a1b;

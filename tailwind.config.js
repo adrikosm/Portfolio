@@ -7,8 +7,8 @@ module.exports = {
       },
       colors: {
         primary: "#faf5f5",
-        secondary: "#61e4a2",
-        github: "#6e5494",
+        secondary: "#00b9e8",
+        github: "rgb(108, 114, 224)",
         linkedin: "#0077b5",
       },
     },
