@@ -1,15 +1,17 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        phone: "850px",
+      },
       colors: {
-        secondary : '#61e4a2',
-        github : "#6e5494",
+        primary: "#faf5f5",
+        secondary: "#61e4a2",
+        github: "#6e5494",
         linkedin: "#0077b5",
-      }
+      },
     },
   },
   plugins: [],
-}
+};

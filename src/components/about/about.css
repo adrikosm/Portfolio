@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about_section {
+  display: flex;
+  flex-direction: row;
+}
+
+.left_section {
+  flex: 50%;
+}
+
+.right_section {
+  flex: 50%;
+}
+
+.greeting_text {
+  transform: translateY(150px);
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+
+.resize-image {
+  width: 500px;
+  transform: translateY(-50px);
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.resume_button {
+  color: var(--primary-color);
+  transform: translateY(150px);
+  margin-top: 30px;
+  background-color: rgb(80, 33, 167);
+}
+
+/********** PHONE VIEW **********/
+
+@media screen and (max-width: 1024px) {
+  .about_section {
+    margin-bottom: 20px;
+  }
+  .resize-image {
+    margin-right: 10px;
+  }
+  .resume_button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .resize-image {
+    width: 400px;
+  }
+}
+@media screen and (max-width:850px) {
+    .about_section{
+        flex-direction: column;
+    }
+    .greeting_text,
+    .resize-image,
+    .resume_button{
+        transform: none;
+        flex:100%;
+    }    
+    .resume_button{
+        margin-top: 30px;
+    }
+
+    .resize-image{
+        width: 500px;
+        text-align: center;
+        margin-left: 100px;
+        margin-right: 50px;
+    }
+
+
+
+    
+}
+
