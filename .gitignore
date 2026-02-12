@@ -24,3 +24,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# LLM / AI assistant files
+CLAUDE.md
+.claude/
+.cursorrules
+.cursorignore
+.cursor/
+.github/copilot-instructions.md
+.aider*
+.continue/
+.codeium/
+.tabnine*
+.windsurf/
+.bolt/

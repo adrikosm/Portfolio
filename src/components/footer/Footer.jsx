@@ -1,38 +1,153 @@
-import React from "react";
-import "./footer.css";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-
-
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import './footer.css';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    {
+      icon: faGithub,
+      url: 'https://github.com/adrikosm',
+      label: 'GitHub',
+      color: '#6c72e0'
+    },
+    {
+      icon: faLinkedin,
+      url: 'https://www.linkedin.com/in/andreas-mavropoulos/',
+      label: 'LinkedIn',
+      color: '#0077b5'
+    }
+  ];
+
+  const quickLinks = [
+    { name: 'About', id: 'about' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Contact', id: 'contact' }
+  ];
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className="Footer">
-      <p className="footer_name">
-        <span>Andreas</span> Mavropoulos
-      </p>
+    <footer className="footer">
+      <div className="footer-container">
+        {/* Main Footer Content */}
+        <div className="footer-content">
+          {/* About Column */}
+          <motion.div
+            className="footer-column"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="footer-title">Andreas Mavropoulos</h3>
+            <p className="footer-description">
+              Data Engineer passionate about building scalable data pipelines,
+              robust data infrastructure, and creating meaningful impact through technology.
+            </p>
+            <div className="footer-social">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-link"
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  style={{ color: social.color }}
+                >
+                  <FontAwesomeIcon icon={social.icon} />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
-      <div className="footer_rights">
-        <p className="fotter_copyrights">© All Rights Reserved </p>
+          {/* Quick Links Column */}
+          <motion.div
+            className="footer-column"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h4 className="footer-column-title">Quick Links</h4>
+            <ul className="footer-links">
+              {quickLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <a
+                    href={`#${link.id}`}
+                    onClick={(e) => handleNavClick(e, link.id)}
+                    className="footer-link"
+                  >
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact Column */}
+          <motion.div
+            className="footer-column"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="footer-column-title">Get In Touch</h4>
+            <ul className="footer-contact">
+              <li>
+                <a href="mailto:adrikosm@gmail.com" className="footer-contact-link">
+                  adrikosm@gmail.com
+                </a>
+              </li>
+              <li className="footer-location">
+                Frankfurt, Germany
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+
+        {/* Footer Bottom */}
+        <motion.div
+          className="footer-bottom"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <div className="footer-divider"></div>
+          <div className="footer-bottom-content">
+            <p className="footer-copyright">
+              &copy; {currentYear} Andreas Mavropoulos. All rights reserved.
+            </p>
+          </div>
+        </motion.div>
       </div>
-
-      <div className="footer_socials">
-
-        <a target= "_blank" href="https://github.com/adrikosm">
-        <FontAwesomeIcon icon={faGithub} className="footer_social_icons hover:text-github" />
-        </a>
-
-        <a target = "_blank" href = "https://www.linkedin.com/in/andreas-mavropoulos/">
-        <FontAwesomeIcon icon={faLinkedin} className = "footer_social_icons hover:text-linkedin" />
-        </a>
-        <a href="mailto:adrikosm@gmail.com">
-        <FontAwesomeIcon icon={faEnvelope} className = "footer_social_icons hover:text-secondary"/>
-        </a>
-      </div>
-    </div>
+    </footer>
   );
 };
 
