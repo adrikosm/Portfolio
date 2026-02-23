@@ -1,99 +1,116 @@
-# Andreas Mavropoulos - Portfolio
+<div align="center">
+  <img src="public/assets/screenshots/hero.png" alt="Andreas Mavropoulos - Portfolio Hero" width="800" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
 
-A modern, responsive personal portfolio website built with React 18 and Tailwind CSS. Features smooth animations, dark/light theme switching, and a clean single-page layout.
+  # 🚀 Andreas Mavropoulos | Data Engineer Portfolio
+  
+  <p><strong>A modern, responsive portfolio website highlighting enterprise-scale Data Engineering.</strong></p>
 
-## Preview
+  <p>
+    <a href="https://adrikosm.github.io/Portfolio/"><img src="https://img.shields.io/badge/Live_Site-View_Now-00B9E8?style=for-the-badge&logo=vercel" alt="Live Site"/></a>
+    <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" /></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/CSS-Custom_Properties-38B2AC?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" /></a>
+  </p>
+</div>
 
-The site includes the following sections:
+---
 
-- **Hero** -- Animated intro with typewriter effect and downloadable resume
-- **Skills** -- Technical skills and personal info
-- **Experience** -- Work experience timeline
-- **Projects** -- Project showcase
-- **Certifications** -- Professional certifications
-- **Interests** -- Personal interests
-- **Contact** -- Contact form and info
+## ✨ Professional Snapshot
 
-## Tech Stack
+Designed to validate senior-level hiring signals, this portfolio documents my production outcomes across leading data infrastructure platforms.
+
+- **Role:** Data Engineer at Alpha FMC (Frankfurt, Germany)
+- **Scope:** Multi-TB Snowflake warehouse with dbt + Dagster across 10+ source systems
+- **Scale:** 2M+ records in active pipelines and streaming throughput up to 50K events/min
+- **Impact:** 55% Snowflake cost reduction, 60% fewer data-quality incidents, 8h to 4m runtime optimization
+- **Delivery:** CI/CD quality gates, migration automation (4h -> 7m), robust observability and documentation
+
+<br>
+
+<div align="center">
+  <img src="public/assets/screenshots/impact.png" alt="Impact Metrics Strip" width="800" style="border-radius: 12px; margin-bottom: 20px;" />
+  
+  <p float="left">
+    <img src="public/assets/screenshots/projects.png" alt="Featured Work List" width="390" style="border-radius: 12px; margin-right: 10px;" />
+    <img src="public/assets/screenshots/project-modal.png" alt="Case Study Modal" width="390" style="border-radius: 12px;" />
+  </p>
+</div>
+
+---
+
+## 🛠 Tech Stack (Portfolio App)
+
+This application is built with a focus on component reusability, modular CSS, and smooth animations.
 
 | Category | Technology |
-|---|---|
-| Framework | React 18 |
-| Styling | Tailwind CSS 3, CSS custom properties |
-| Animations | Framer Motion 11 |
-| Icons | FontAwesome 6 |
-| Build Tool | Create React App (react-scripts 5) |
-| Other | typewriter-effect, react-intersection-observer |
+| :--- | :--- |
+| **Framework** | React 18 |
+| **Styling** | Vanilla CSS with Custom Properties (CSS variables) |
+| **Animations** | Framer Motion 11 |
+| **Icons** | FontAwesome 6 |
+| **Build Tool** | Create React App (react-scripts 5) |
 
-## Getting Started
+*(Note: The actual Data Engineering stack highlighted throughout the site includes Snowflake, dbt, Dagster, Kafka, Spark, Azure, and Python.)*
+
+---
+
+## 🚀 Local Setup Guide
+
+Follow these steps to run the portfolio locally on your machine.
 
 ### Prerequisites
+- [Node.js](https://nodejs.org/) (v16.x or higher)
+- npm or yarn
 
-- Node.js >= 16
-- npm
+### Installation & Run
 
-### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/adrikosm/Portfolio.git
+   ```
 
-```bash
-git clone https://github.com/adrikosm/Portfolio.git
-cd Portfolio
-npm install
-```
+2. **Navigate to the project directory:**
+   ```bash
+   cd Portfolio
+   ```
 
-### Development
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm start
-```
+4. **Start the development server:**
+   ```bash
+   npm start
+   ```
+   > The app will automatically open at [http://localhost:3000](http://localhost:3000) with hot reloading enabled.
 
-Runs the app at [http://localhost:3000](http://localhost:3000) with hot reloading.
+---
 
-### Production Build
+## 🏗 Project Structure
 
-```bash
-npm run build
-```
+The codebase is organized for clean separation of concerns and maintainability.
 
-Outputs optimized static files to the `build/` directory, ready for deployment.
-
-### Tests
-
-```bash
-npm test         # watch mode
-npm run test:ci  # single run (CI)
-```
-
-## Project Structure
-
-```
+```text
 src/
-├── App.jsx                        # Root layout, theme state, scroll-to-top
-├── index.js                       # Entry point
-├── index.css                      # Global styles, CSS variables, theme definitions
-├── assets/                        # Images, resume PDF
-└── components/
-    ├── about/                     # Hero section with typewriter effect
-    ├── personal/                  # Skills & personal info
-    ├── experience/                # Work experience timeline
-    ├── projects/                  # Project showcase
-    ├── certifications/            # Certifications display
-    ├── interests/                 # Interests section
-    ├── contact/                   # Contact form
-    ├── header/                    # Navigation, mobile menu, theme toggle
-    └── footer/                    # Footer with social links
+├── data/                            # Single source of truth (profileData.js)
+├── components/
+│   ├── about/                       # Hero section with typewriter effect
+│   ├── impact/                      # Top-level KPI metrics showcase
+│   ├── projects/                    # Detailed featured project case studies
+│   ├── header/ & footer/            # Global navigation and layout
+│   └── ...                          # Other sections (Experience, Skills, Contact)
+├── App.jsx                          # Main routing and global theme context
+└── index.css                        # Global CSS variables and core styles
 ```
 
-Each component is self-contained with its own `.jsx` and `.css` file.
+### Key Features
+- 🌗 **Dark / Light Mode:** Theme persists via `localStorage` (defaults to dark).
+- 📱 **Responsive Design:** Mobile-first layout with a smooth slide-in navigation menu.
+- ⚡ **Scroll Animations:** Viewport-triggered element reveals using Intersection Observer.
+- 📈 **Centralized Data:** All portfolio claims and metrics sit in `src/data/profileData.js` for easy updates.
 
-## Features
+---
 
-- **Dark / Light Mode** -- Theme persists via localStorage; defaults to dark
-- **Responsive Design** -- Mobile-first layout with a slide-in navigation menu
-- **Scroll Animations** -- Viewport-triggered animations using Intersection Observer
-- **Smooth Scrolling** -- Header-offset-aware smooth scroll to sections
-- **Mouse-following Glow** -- Interactive glow effect on the resume button
-- **Scroll-to-Top Button** -- Appears after scrolling 400px with fade animation
+## 📄 License
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE).

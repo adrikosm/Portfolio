@@ -25,7 +25,10 @@ const Footer = () => {
   const quickLinks = [
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
+    { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Certifications', id: 'certifications' },
+    { name: 'Interests', id: 'interests' },
     { name: 'Contact', id: 'contact' }
   ];
 
@@ -59,8 +62,8 @@ const Footer = () => {
           >
             <h3 className="footer-title">Andreas Mavropoulos</h3>
             <p className="footer-description">
-              Data Engineer passionate about building scalable data pipelines,
-              robust data infrastructure, and creating meaningful impact through technology.
+              Data Engineer building scalable Snowflake + dbt platforms with strong reliability,
+              cost optimization, and measurable delivery outcomes.
             </p>
             <div className="footer-social">
               {socialLinks.map((social, index) => (

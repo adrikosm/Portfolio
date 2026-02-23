@@ -1,0 +1,149 @@
+.impact-section {
+  background: var(--background-secondary);
+  padding: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.impact-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.impact-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.impact-updated {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.impact-card {
+  background: var(--background-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.impact-card:hover {
+  background: var(--background-card-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.impact-card-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.impact-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+
+.impact-tooltip {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.impact-tooltip::-webkit-details-marker {
+  display: none;
+}
+
+.impact-tooltip:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.impact-tooltip-details[open] .impact-tooltip {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.impact-tooltip-details {
+  position: relative;
+}
+
+.impact-tooltip-content {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--background-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: left;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.impact-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.impact-context {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.impact-meta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-tooltip-content {
+    right: auto;
+    left: 0;
+    width: min(260px, 75vw);
+  }
+}

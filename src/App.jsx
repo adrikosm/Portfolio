@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Header from './components/header/Header';
 import About from './components/about/About';
+import ImpactMetrics from './components/impact/ImpactMetrics';
 import Personal from './components/personal/Personal';
 import Experience from './components/experience/Experience';
 import Projects from './components/projects/Projects';
@@ -11,6 +12,7 @@ import Contact from './components/contact/Contact';
 import Footer from "./components/footer/Footer";
 
 const App = () => {
+  const shouldReduceMotion = useReducedMotion();
   // Lazy initialization: only reads localStorage once on mount
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -46,7 +48,7 @@ const App = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: shouldReduceMotion ? 'auto' : 'smooth'
     });
   };
 
@@ -57,10 +59,14 @@ const App = () => {
 
   return (
     <div className={`app ${isDarkMode ? 'dark' : 'light'}`}>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       {/* Main content */}
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <About />
+        <ImpactMetrics />
         <Personal />
         <Experience />
         <Projects />

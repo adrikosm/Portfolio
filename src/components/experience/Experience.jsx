@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcase, faCalendar, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import "./experience.css";
+import { profileData } from "../../data/profileData";
 
 const Experience = () => {
   const [ref, inView] = useInView({
@@ -11,46 +12,8 @@ const Experience = () => {
     threshold: 0.1,
   });
 
-  const experiences = [
-    {
-      id: 1,
-      title: "Data Engineer",
-      company: "Alpha FMC",
-      location: "Frankfurt, Germany",
-      period: "2022 - Present",
-      current: true,
-      achievements: [
-        "Architected multi-TB data warehouse processing 2M+ daily records across 50+ source systems using dbt on Snowflake (Large warehouse, 8-node cluster)",
-        "Led technical decision to migrate from Airflow to Dagster - reduced pipeline orchestration complexity by 40% and improved observability through asset-based lineage",
-        "Reduced data quality incidents by 60% implementing dbt's testing framework with 500+ custom tests for schema validation, referential integrity, and business rules",
-        "Mentored 3 junior engineers on data modeling best practices - established team standards for incremental models and snapshot strategies",
-        "Cut SQL codebase by 60% through reusable Jinja macros in dbt - created internal package with 20+ macros used across 15+ projects company-wide",
-        "Optimized Snowflake warehouse performance reducing query runtime by 35% through clustering keys and materialized views - saved $15K/month in compute costs",
-        "Built real-time streaming pipeline using Kafka and Spark Structured Streaming for event data - processes 50K events/minute with sub-second latency",
-        "Implemented CI/CD for data pipelines using Azure DevOps with automated testing, slim CI runs, and blue-green deployment strategies",
-      ],
-      technologies: ["dbt", "Snowflake", "Azure", "Python", "SQL", "Dagster", "Streamlit", "Kafka", "Spark", "Docker", "Terraform", "Azure DevOps"],
-    },
-    {
-      id: 2,
-      title: "Data Solution Engineer",
-      company: "Top Vision",
-      location: "Frankfurt, Germany",
-      period: "2020 - 2022",
-      current: false,
-      achievements: [
-        "Designed ETL architecture processing 500GB+ client data daily from Excel/CSV to PostgreSQL using Python - handled data validation and GDPR compliance requirements",
-        "Reduced data pipeline processing time by 40% through parallel processing with Python multiprocessing - processed 20+ datasets concurrently vs sequential approach",
-        "Led migration of legacy PHP monolith to modular architecture - improved landing page load time by 30% through lazy loading and caching strategies (Redis)",
-        "Built cross-platform Flutter app (Web/Android/iOS) with Firebase Auth - scaled to 5K+ users with role-based access control and real-time data sync",
-        "Collaborated with client stakeholders in Agile sprints - translated business requirements into technical specs for 10+ ETL workflows",
-        "Created data documentation using automated schema discovery - established data catalog reducing onboarding time for new team members by 50%",
-      ],
-      technologies: ["PostgreSQL", "Python", "PHP", "Flutter", "Firebase", "Redis", "Docker", "Git"],
-    },
-  ];
+  const { experience } = profileData;
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,11 +38,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="experience-section" ref={ref}>
-      <motion.div
-        className="experience-container"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
+      <motion.div className="experience-container" initial="hidden" animate={inView ? "visible" : "hidden"}>
         {/* Section Header */}
         <motion.div
           className="section-header"
@@ -87,38 +46,23 @@ const Experience = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Work Experience</h2>
-          <p className="section-subtitle">
-            Designing data systems that process terabytes daily and empower data-driven decisions
-          </p>
+          <h2 className="section-title">{experience.title}</h2>
+          <p className="section-subtitle">{experience.subtitle}</p>
         </motion.div>
 
         {/* Timeline */}
-        <motion.div
-          className="timeline"
-          variants={containerVariants}
-        >
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              className={`timeline-item ${exp.current ? 'current' : ''}`}
-              variants={itemVariants}
-            >
+        <motion.div className="timeline" variants={containerVariants}>
+          {experience.roles.map((exp, index) => (
+            <motion.div key={exp.id} className={`timeline-item ${exp.current ? "current" : ""}`} variants={itemVariants}>
               {/* Timeline Marker */}
               <div className="timeline-marker">
-                <div className="marker-dot"></div>
-                {index < experiences.length - 1 && <div className="marker-line"></div>}
+                <div className="marker-dot" />
+                {index < experience.roles.length - 1 && <div className="marker-line" />}
               </div>
 
               {/* Experience Card */}
-              <motion.div
-                className="experience-card"
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                {exp.current && (
-                  <div className="current-badge">Current</div>
-                )}
+              <motion.div className="experience-card" whileHover={{ y: -8, scale: 1.02 }} transition={{ duration: 0.3 }}>
+                {exp.current && <div className="current-badge">Current</div>}
 
                 {/* Header */}
                 <div className="experience-header">

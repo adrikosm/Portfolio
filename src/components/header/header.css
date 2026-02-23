@@ -134,8 +134,17 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.nav-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .light .nav-link:hover {
   background: rgba(0, 119, 179, 0.08);
+}
+
+.light .nav-link.active {
+  background: rgba(0, 119, 179, 0.14);
 }
 
 /* Nav Actions */
@@ -287,8 +296,17 @@
   transform: translateX(10px);
 }
 
+.mobile-nav-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .light .mobile-nav-link:hover {
   background: rgba(0, 119, 179, 0.05);
+}
+
+.light .mobile-nav-link.active {
+  background: rgba(0, 119, 179, 0.1);
 }
 
 .mobile-socials {

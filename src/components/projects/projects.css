@@ -42,9 +42,20 @@
   position: relative;
   cursor: pointer;
   border-radius: var(--border-radius);
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  text-align: left;
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 100%; /* Ensure all cards fill grid cell height */
+  height: 100%;
+  /* Ensure all cards fill grid cell height */
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 4px;
 }
 
 .project-card-inner {
@@ -53,11 +64,13 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--border-radius);
   padding: 32px;
-  height: 420px; /* Fixed height for consistency */
+  height: 420px;
+  /* Fixed height for consistency */
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  overflow: hidden; /* Hide overflow for long content */
+  overflow: hidden;
+  /* Hide overflow for long content */
 }
 
 .project-card:hover .project-card-inner {
@@ -98,7 +111,39 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.project-proof-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.project-proof-badge.public {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.project-proof-badge.private {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.project-proof-badge.coming_soon {
+  background: rgba(0, 185, 232, 0.14);
+  color: var(--secondary-color);
+  border-color: rgba(0, 185, 232, 0.35);
 }
 
 .project-description {
@@ -108,11 +153,13 @@
   flex: 1;
   /* Limit description to 3 lines with ellipsis */
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 4.8em; /* 3 lines * 1.6 line-height */
+  max-height: 4.8em;
+  /* 3 lines * 1.6 line-height */
 }
 
 /* Project Tags */
@@ -303,10 +350,22 @@
 
 .modal-actions {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
   margin-top: 32px;
   padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-proof-note {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.modal-btn-disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 /* Responsive Design */
@@ -318,7 +377,8 @@
 
   .project-card-inner {
     padding: 24px;
-    height: 400px; /* Slightly smaller on tablet */
+    height: 400px;
+    /* Slightly smaller on tablet */
   }
 
   .modal-header {
@@ -334,7 +394,7 @@
   }
 
   .modal-actions {
-    flex-direction: column;
+    align-items: stretch;
   }
 
   .modal-actions .btn {
@@ -349,7 +409,8 @@
 
   .project-card-inner {
     padding: 20px;
-    height: 380px; /* Smaller on mobile */
+    height: 380px;
+    /* Smaller on mobile */
   }
 
   .modal-icon {
@@ -357,7 +418,48 @@
   }
 
   .project-description {
-    -webkit-line-clamp: 2; /* Reduce to 2 lines on mobile */
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    /* Reduce to 2 lines on mobile */
     max-height: 3.2em;
   }
+}
+
+/* Outcome Badges */
+.outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.badge-cost {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-latency {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-quality {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-throughput {
+  background: rgba(0, 185, 232, 0.15);
+  color: #00b9e8;
+  border: 1px solid rgba(0, 185, 232, 0.3);
 }

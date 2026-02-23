@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Andreas Mavropoulos monogram">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077B3"/>
+      <stop offset="100%" stop-color="#00b9e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <path d="M16 46L26 18h4l10 28h-5l-2.2-6.5h-9.4L21.2 46H16zm9-11h6.2L28 25.4 25 35z" fill="#ffffff"/>
+  <path d="M42 46V18h4.2l9.8 16.8V18H60v28h-4.2L46 29.1V46H42z" fill="#ffffff"/>
+</svg>

@@ -20,12 +20,12 @@
 :root {
   /* Colors */
   --primary-color: #faf5f5;
-  --secondary-color: #00b9e8;
+  --secondary-color: #D4A853;
   --github-color: rgb(108, 114, 224);
   --linkedin-color: #0077b5;
 
   /* Background */
-  --background-primary: #0a0a0f;
+  --background-primary: #0C0A0F;
   --background-secondary: #13131a;
   --background-tertiary: #1a1a24;
   --background-card: rgba(255, 255, 255, 0.03);
@@ -45,8 +45,9 @@
   --accent-red: #ef4444;
 
   /* Typography */
-  --font-primary: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-primary: "Jost", "Segoe UI", Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
 
   /* Spacing */
   --container-width: 1200px;
@@ -73,21 +74,30 @@
 .light {
   /* Ocean Breeze Colors - Tranquil and refreshing */
   --primary-color: #0a0a0f;
-  --secondary-color: #0077B3; /* Darker ocean blue */
+  --secondary-color: #0077B3;
+  /* Darker ocean blue */
   --accent-blue: #0077B3;
-  --accent-light-blue: #A3D1E0; /* Primary light blue */
+  --accent-light-blue: #A3D1E0;
+  /* Primary light blue */
 
   /* Background - Airy and elegant coastal aesthetic */
-  --background-primary: #F0F8FB; /* Very light blue-white */
-  --background-secondary: #E5F3F8; /* Soft ocean mist */
-  --background-tertiary: #D0E8F0; /* Gentle wave color */
-  --background-card: rgba(163, 209, 224, 0.15); /* Light blue tint */
+  --background-primary: #F0F8FB;
+  /* Very light blue-white */
+  --background-secondary: #E5F3F8;
+  /* Soft ocean mist */
+  --background-tertiary: #D0E8F0;
+  /* Gentle wave color */
+  --background-card: rgba(163, 209, 224, 0.15);
+  /* Light blue tint */
   --background-card-hover: rgba(163, 209, 224, 0.25);
 
   /* Text - Enhanced contrast for readability */
-  --text-primary: #1a3a4a; /* Deep ocean text */
-  --text-secondary: #2d5a70; /* Medium ocean text */
-  --text-tertiary: #5a8ca3; /* Lighter ocean text */
+  --text-primary: #1a3a4a;
+  /* Deep ocean text */
+  --text-secondary: #2d5a70;
+  /* Medium ocean text */
+  --text-tertiary: #5a8ca3;
+  /* Lighter ocean text */
 
   /* Border */
   --border-color: rgba(0, 119, 179, 0.15);
@@ -134,7 +144,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: radial-gradient(ellipse at top, rgba(0, 185, 232, 0.04) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom, rgba(163, 209, 224, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at bottom, rgba(163, 209, 224, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: -2;
 }
@@ -156,12 +166,16 @@ body::after {
 }
 
 @keyframes float-layer {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(-20px, -30px) scale(1.1);
   }
+
   66% {
     transform: translate(20px, 20px) scale(0.9);
   }
@@ -201,8 +215,13 @@ body::after {
    TYPOGRAPHY
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
@@ -234,6 +253,24 @@ a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition-base);
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -56px;
+  z-index: 5000;
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus-visible {
+  top: 12px;
 }
 
 /* ============================================
@@ -443,7 +480,9 @@ section {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ============================================
@@ -519,6 +558,7 @@ section {
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -538,6 +578,7 @@ section {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -549,6 +590,7 @@ section {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -560,6 +602,7 @@ section {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -567,27 +610,36 @@ section {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(0, 185, 232, 0.3);
   }
+
   50% {
     box-shadow: 0 0 40px rgba(0, 185, 232, 0.6);
   }

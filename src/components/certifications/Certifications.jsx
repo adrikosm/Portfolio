@@ -2,13 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCertificate,
-  faGraduationCap,
-  faAward,
-  faCalendar
-} from "@fortawesome/free-solid-svg-icons";
+import { faCertificate, faGraduationCap, faAward, faCalendar } from "@fortawesome/free-solid-svg-icons";
 import "./certifications.css";
+import { profileData } from "../../data/profileData";
+
+const iconMap = {
+  certificate: faCertificate,
+  graduationCap: faGraduationCap
+};
 
 const Certifications = () => {
   const [ref, inView] = useInView({
@@ -16,32 +17,8 @@ const Certifications = () => {
     threshold: 0.1,
   });
 
-  const certifications = [
-    {
-      id: 1,
-      type: "degree",
-      title: "B.Sc. Information and Technology",
-      institution: "Harokopio University",
-      location: "Athens, Greece",
-      year: "Graduated",
-      icon: faGraduationCap,
-      color: "#8b5cf6",
-      description: "Comprehensive study in Computer Science, Information Systems, and Data Management",
-    },
-    {
-      id: 2,
-      type: "certificate",
-      title: "Elements of AI",
-      institution: "University of Helsinki",
-      location: "Finland",
-      year: "Certified",
-      icon: faCertificate,
-      color: "#00b9e8",
-      description: "Introduction to AI, machine learning, and neural networks fundamentals",
-    },
-  ];
+  const { certifications } = profileData;
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -66,11 +43,7 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="certifications-section" ref={ref}>
-      <motion.div
-        className="certifications-container"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
+      <motion.div className="certifications-container" initial="hidden" animate={inView ? "visible" : "hidden"}>
         {/* Section Header */}
         <motion.div
           className="section-header"
@@ -78,18 +51,13 @@ const Certifications = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title">Education & Certifications</h2>
-          <p className="section-subtitle">
-            Academic foundation and continuous learning in technology and AI
-          </p>
+          <h2 className="section-title">{certifications.title}</h2>
+          <p className="section-subtitle">{certifications.subtitle}</p>
         </motion.div>
 
         {/* Certifications Grid */}
-        <motion.div
-          className="certifications-grid"
-          variants={containerVariants}
-        >
-          {certifications.map((cert) => (
+        <motion.div className="certifications-grid" variants={containerVariants}>
+          {certifications.items.map((cert) => (
             <motion.div
               key={cert.id}
               className={`certification-card ${cert.type}`}
@@ -97,7 +65,6 @@ const Certifications = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Icon Circle */}
               <div
                 className="cert-icon-circle"
                 style={{
@@ -105,16 +72,14 @@ const Certifications = () => {
                   boxShadow: `0 8px 25px ${cert.color}40`
                 }}
               >
-                <FontAwesomeIcon icon={cert.icon} className="cert-icon" />
+                <FontAwesomeIcon icon={iconMap[cert.iconKey] || faCertificate} className="cert-icon" />
               </div>
 
-              {/* Badge */}
               <div className="cert-badge">
                 <FontAwesomeIcon icon={faAward} />
-                <span>{cert.type === 'degree' ? 'Degree' : 'Certificate'}</span>
+                <span>{cert.type === "degree" ? "Degree" : "Certificate"}</span>
               </div>
 
-              {/* Content */}
               <div className="cert-content">
                 <h3 className="cert-title">{cert.title}</h3>
                 <h4 className="cert-institution">{cert.institution}</h4>
@@ -130,8 +95,7 @@ const Certifications = () => {
                 <p className="cert-description">{cert.description}</p>
               </div>
 
-              {/* Decorative Elements */}
-              <div className="cert-decoration" style={{ background: cert.color }}></div>
+              <div className="cert-decoration" style={{ background: cert.color }} />
             </motion.div>
           ))}
         </motion.div>
@@ -146,15 +110,15 @@ const Certifications = () => {
           <div className="cert-stats">
             <div className="cert-stat-item">
               <FontAwesomeIcon icon={faGraduationCap} />
-              <span>1 Degree</span>
+              <span>{certifications.stats[0]}</span>
             </div>
             <div className="cert-stat-item">
               <FontAwesomeIcon icon={faCertificate} />
-              <span>1+ Certification</span>
+              <span>{certifications.stats[1]}</span>
             </div>
             <div className="cert-stat-item">
               <FontAwesomeIcon icon={faAward} />
-              <span>Continuous Learning</span>
+              <span>{certifications.stats[2]}</span>
             </div>
           </div>
         </motion.div>
